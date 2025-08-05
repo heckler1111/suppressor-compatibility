@@ -1,5 +1,7 @@
 
 import React, { useState } from "react";
+import "./App.css"; // ✅ THIS LINE IS REQUIRED
+
 
 const suppressorData = [
   {
