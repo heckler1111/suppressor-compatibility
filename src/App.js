@@ -42,7 +42,18 @@ function App() {
 
   return (
     <div style={{ padding: 20, fontFamily: "Arial", color: "white", background: "black", minHeight: "100vh" }}>
-      <h1>Suppressor Compatibility Tool</h1>
+     <div className="app-container">
+  <p className="app-header">Powered by Revival Defense</p>
+  <h1 className="app-title">Suppressor Compatibility Tool</h1>
+  .app-header {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+
 
       <div style={{ marginTop: 20 }}>
         <label>Select Manufacturer:</label><br />
