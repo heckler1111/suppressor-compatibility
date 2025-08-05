@@ -1,7 +1,5 @@
-
 import React, { useState } from "react";
-import './App.css';
-
+import "./App.css";
 
 const suppressorData = [
   {
@@ -41,71 +39,69 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20, fontFamily: "Arial", color: "white", background: "black", minHeight: "100vh" }}>
-     <div className="app-container">
-  <p className="app-header">Powered by Revival Defense</p>
-  <h1 className="app-title">Suppressor Compatibility Tool</h1>
-  .app-header {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
-}
+    <div className="app-container">
+      <p className="app-header">Powered by Revival Defense</p>
+      <h1 className="app-title">Suppressor Compatibility Tool</h1>
 
-
-
-      <div style={{ marginTop: 20 }}>
-        <label>Select Manufacturer:</label><br />
-        <select onChange={(e) => {
-          setSelectedBrand(e.target.value);
-          setSelectedSuppressor(null);
-        }}>
-          <option value="">-- Select Brand --</option>
-          {brands.map(brand => (
-            <option key={brand} value={brand}>{brand}</option>
-          ))}
-        </select>
-      </div>
-
-      {filteredSuppressors.length > 0 && (
-        <div style={{ marginTop: 20 }}>
-          <label>Select Suppressor:</label><br />
+      <div className="selector-row">
+        <div className="selector">
+          <label>Manufacturer</label>
           <select onChange={(e) => {
-            const selected = suppressorData.find(s => s.model === e.target.value);
-            setSelectedSuppressor(selected);
+            setSelectedBrand(e.target.value);
+            setSelectedSuppressor(null);
+            setSelectedDevice(null);
           }}>
-            <option value="">-- Select Suppressor --</option>
-            {filteredSuppressors.map(sup => (
-              <option key={sup.model} value={sup.model}>{sup.model}</option>
+            <option value="">-- Select Brand --</option>
+            {brands.map(brand => (
+              <option key={brand} value={brand}>{brand}</option>
             ))}
           </select>
         </div>
-      )}
 
-      <div style={{ marginTop: 20 }}>
-        <label>Select Muzzle Device:</label><br />
-        <select onChange={(e) => {
-          const selected = muzzleDevices.find(d => d.name === e.target.value);
-          setSelectedDevice(selected);
-        }}>
-          <option value="">-- Select Device --</option>
-          {muzzleDevices.map(dev => (
-            <option key={dev.name} value={dev.name}>{dev.name}</option>
-          ))}
-        </select>
+        {filteredSuppressors.length > 0 && (
+          <div className="selector">
+            <label>Suppressor</label>
+            <select onChange={(e) => {
+              const selected = suppressorData.find(s => s.model === e.target.value);
+              setSelectedSuppressor(selected);
+            }}>
+              <option value="">-- Select Suppressor --</option>
+              {filteredSuppressors.map(sup => (
+                <option key={sup.model} value={sup.model}>{sup.model}</option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        <div className="selector">
+          <label>Muzzle Device</label>
+          <select onChange={(e) => {
+            const selected = muzzleDevices.find(d => d.name === e.target.value);
+            setSelectedDevice(selected);
+          }}>
+            <option value="">-- Select Device --</option>
+            {muzzleDevices.map(dev => (
+              <option key={dev.name} value={dev.name}>{dev.name}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {selectedSuppressor && selectedDevice && (
-        <div style={{ marginTop: 30 }}>
-          <h3>Results</h3>
+        <div className="results-card">
+          <h2>Results</h2>
           <p><strong>Suppressor:</strong> {selectedSuppressor.model}</p>
           <p><strong>Muzzle Device:</strong> {selectedDevice.name}</p>
           <p><strong>Blast Chamber Depth:</strong> {selectedSuppressor.blastChamber}"</p>
           <p><strong>Device Length:</strong> {selectedDevice.length}"</p>
           <p><strong>Overrun:</strong> {calculateOverrun()}"</p>
           <p>
-            <strong>Status:</strong> {calculateOverrun() > 0 ? "Incompatible (too long)" : "Compatible"}
+            <strong>Status:</strong>{" "}
+            {calculateOverrun() > 0 ? (
+              <span className="status-bad">Incompatible (too long)</span>
+            ) : (
+              <span className="status-good">Compatible</span>
+            )}
           </p>
         </div>
       )}
