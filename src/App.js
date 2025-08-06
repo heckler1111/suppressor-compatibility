@@ -33,10 +33,12 @@ function App() {
         <div className="grid">
           {['Plan B', 'CAT 1x16LH', 'KeyMo', 'ASR'].map((name) => {
             return (
-              <div key={name} className="card">
-                <div className="card-image placeholder"></div>
-                <div className="card-title">{name}</div>
-              </div>
+              <React.Fragment key={name}>
+                <div className="card">
+                  <div className="card-image placeholder"></div>
+                  <div className="card-title">{name}</div>
+                </div>
+              </React.Fragment>
             );
           })}
         </div>
@@ -48,10 +50,12 @@ function App() {
         <div className="grid">
           {['Otter Creek', 'Dead Air', 'Aero Precision', 'HuxWrx'].map((name) => {
             return (
-              <div key={name} className="card">
-                <div className="card-image placeholder"></div>
-                <div className="card-title">{name}</div>
-              </div>
+              <React.Fragment key={name}>
+                <div className="card">
+                  <div className="card-image placeholder"></div>
+                  <div className="card-title">{name}</div>
+                </div>
+              </React.Fragment>
             );
           })}
         </div>
