@@ -31,7 +31,7 @@ function App() {
       <section className="grid-section">
         <h3>Mounting Systems</h3>
         <div className="grid">
-          {['Plan B', 'CAT 1x16LH', 'KeyMo', 'ASR'].map(name => (
+          {['Plan B', 'CAT 1x16LH', 'KeyMo', 'ASR'].map((name) => (
             <div key={name} className="card">
               <div className="card-image placeholder"></div>
               <div className="card-title">{name}</div>
@@ -44,7 +44,7 @@ function App() {
         <h3>Silencer Manufacturers</h3>
         <input className="search" type="text" placeholder="Search manufacturers..." />
         <div className="grid">
-          {['Otter Creek', 'Dead Air', 'Aero Precision', 'HuxWrx'].map(name => (
+          {['Otter Creek', 'Dead Air', 'Aero Precision', 'HuxWrx'].map((name) => (
             <div key={name} className="card">
               <div className="card-image placeholder"></div>
               <div className="card-title">{name}</div>
