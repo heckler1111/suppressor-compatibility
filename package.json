@@ -1,6 +1,5 @@
-
 {
-  "name": "revival-defense-portal",
+  "name": "revival-defense-ui-phase1",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
